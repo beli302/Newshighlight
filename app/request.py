@@ -4,10 +4,8 @@ from .models import Sources,Articles
 
 News = news.News
 
-# Getting api key
 api_key = app.config['NEWS_API_KEY']
 
-# Getting the movie base url
 base_url = app.config["NEWS_API_BASE_URL"]
 
 def get_news(category):
@@ -29,7 +27,7 @@ def get_news(category):
 
     return news_results
 
-    def process_results(news_sources_list):
+def process_results(news_sources_list):
     '''
     Function that processes the json results
     '''
@@ -48,9 +46,9 @@ def get_news(category):
     
     return news_sources_results
 
-    def get_articles(id):
+def get_articles(id):
     '''
-    Function that processes the articles and returns a list of articles objects
+    Processes the articles and returns a list of articles objects
     '''
     get_news_articles_url = articles_url.format(id,api_key)
     with urllib.request.urlopen(get_news_articles_url) as url:
