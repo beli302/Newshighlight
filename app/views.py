@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news
+from .request import get_news,get_news
 
 # Views
 @app.route('/news/<int:news_id>')
@@ -31,3 +31,5 @@ def index():
     
     
     return render_template('index.html', title = title, general = general_news, technology = technology_news, business = business_news, sports = sports_news, entertainment = entertainment_news )
+
+    

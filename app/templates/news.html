@@ -1,1 +1,28 @@
-<h1> Welcome to news {{ id }} </h1>
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> {{name}} </h1>
+        </div>
+    </div>
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-3">
+            <a href={{article.url}} target="_blank">
+                <img class="img-fluid img-thumbnail" src={{article.urlToImage}} alt="pic">
+            </a>
+            <div class="card">
+                <h4 class="text-bold"> {{article.title}} </h4>
+                <p>by {{article.author}} </p>
+                <hr>
+                <p> {{article.description}}...
+                    <a href={{article.url}} target="_blank">Read More</a>
+                </p>
+                <p>Published on {{article.publishedAt}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock%}
