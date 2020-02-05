@@ -16,3 +16,6 @@ By Belinda Okumu
 * Edit the file 
 * Install python 3.6
 * Run the test
+
+## Contributing
+Pull requests are welcome.
