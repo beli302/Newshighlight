@@ -3,47 +3,76 @@
 
 {% block styles%}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/mine.css')}}">
 {% endblock %}
 
 {% block content%}
+
 <div class="container-fluid">
-    <hr>
-        <div class="row">
-        <div class="col-md-4">
-            <h2>General Sources</h2>
-        </div>
+        <div class="jumbotron mt-4" >
+                <h1 class="display-4 text-center">Welcome</h1>
+                <h1 class="display-4 text-center">To News Highlights</h1>
+                <p class="lead text-center">A simple application that will help list and preview news articles from various sources</p>
+                <p class='text-center'>Tap the buttons below to choose news sources by category. Then click on news source to view </p>
+        <p class="text-center">
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#generalNews" role="button" aria-expanded="false" aria-controls="collapseExample">General</a>
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#businessNews" role="button" aria-expanded="false" aria-controls="collapseExample">Business</a>
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#technologyNews" role="button" aria-expanded="false" aria-controls="collapseExample">Technology</a>
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#sportsNews" role="button" aria-expanded="false" aria-controls="collapseExample">Sports</a>
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#entertainmentNews" role="button" aria-expanded="false" aria-controls="collapseExample">Entertainment</a>
+              </p>
+              <div class="card">
+                <div class="card-body">
+                <div id="generalNews" class="collapse">
+                        <div class="card-header">
+                                <h1>Choose your prefered news source</h1>
+                              </div>  
+            <h2 class="card-title">General Sources</h2>
+            <div class="row">
         {{macro.displayNewsSourcesList(general)}}
+    </div>     
     </div>
-    <hr>
-     <div class="row">
-        <div class="col-md-4">
-            <h2>Technology News Sources</h2>
-        </div>
-        {{macro.displayNewsSourcesList(technology)}}
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <h2 >Business News Sources</h2>
         </div>
+            <div class="card">
+                    <div class="card-body"> 
+                <div id="businessNews" class="collapse">  
+            <h2 class="card-title">Business News Sources</h2>
+            <div class="row">
         {{macro.displayNewsSourcesList(business)}}
+                </div>
+   </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Sports News Sources</h2>
-        </div>
+            </div>
+            <div class="card">
+            <div class="card-body"> 
+                <div id="sportsNews" class="collapse">    
+            <h2 class="card-title">Sports News Sources</h2>
+            <div class="row">
         {{macro.displayNewsSourcesList(sports)}}
-    </div>
-    <hr>
-   
-    <hr>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Entertainment News Sources</h2>
+                </div>
         </div>
+    </div>
+            </div>
+            <div class="card">
+                    <div class="card-body">
+                <div id="technologyNews" class="collapse">   
+            <h2 class="card-title">Technology News Sources</h2>
+            <div class="row">
+        {{macro.displayNewsSourcesList(technology)}}
+                </div>
+        </div>
+    </div>
+            </div>
+            <div class="card">
+                    <div class="card-body">
+                <div id="entertainmentNews" class="collapse">
+            <h2 class="card-title">Entertainment News Sources</h2>
+            <div class="row">
         {{macro.displayNewsSourcesList(entertainment)}}
     </div>
-    <hr>
+    </div>
+    </div>
+</div>
+        </div>
 </div>
 {% endblock %}

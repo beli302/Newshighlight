@@ -1,34 +1,30 @@
-from flask import render_template
-from app import app
-from .request import get_news,get_news
+from flask import render_template,redirect,url_for,request
+from . import main
+from ..models import Sources,Articles
+from ..request import get_articles,get_sources
 
-@app.route('/news/<int:news_id>')
-def news(news_id):
+@main.route('/')
+def index():
+    '''
+    Function that returns the index page and the processed data
+    '''
+    general_news = get_sources('general')
+    business_news = get_sources('business')
+    entertainment_news = get_sources('entertainment')
+    sports_news = get_sources('sports')
+    technology_news = get_sources('technology')
+   
 
+    title = 'Home | Best News Update Site'
+    
+    return render_template('index.html',title=title, general=general_news, business=business_news, entertainment=entertainment_news, sports=sports_news, technology=technology_news)
+
+@main.route('/articles/<id>')
+def articles(id):
 	'''
-	Function to view news page
+	Function to view articles page
 	'''
-	news = get_news(id)
+	news_articles = get_articles(id)
 	title = f'{id}'
 
-	return render_template('news.html',title= title,news = news_articles)
-
-
-@app.route('/')
-def index():
-
-    '''
-    function that returns the index page and its data
-    '''
-
-    # Getting popular movie
-    general_news = get_sources('general')
-    technology_news = get_sources('technology')
-    business_news = get_sources('business')
-    sports_news = get_sources('sports')
-    entertainment_news = get_sources('entertainment')
-    
-    
-    return render_template('index.html', title = title, general = general_news, technology = technology_news, business = business_news, sports = sports_news, entertainment = entertainment_news )
-
-    
+	return render_template('articles.html',title= title,articles = news_articles)
