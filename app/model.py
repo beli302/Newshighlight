@@ -13,7 +13,7 @@ class Source:
 
 class NewsArticle:
     '''
-    News class to define News Objects
+    News class to dhttp://127.0.0.1:5000/efine News Objects
     '''
 
     def __init__(self,id,title,description,author,url,urlToImage):
