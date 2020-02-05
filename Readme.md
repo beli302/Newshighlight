@@ -24,3 +24,6 @@ Pull requests are welcome.
 * Tel: +254706313301
 * Email: belindashirkiz@gmail.com
 
+## Licence
+Licensed under the  [MIT license](LICENSE).
+Copyright (c) 2020 News Highlight
