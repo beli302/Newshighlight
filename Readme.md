@@ -10,3 +10,9 @@ By Belinda Okumu
 * Python 3.6
 * HTML
 * Bootstrap
+
+## Set up instractions
+* Clone the repo
+* Edit the file 
+* Install python 3.6
+* Run the test
