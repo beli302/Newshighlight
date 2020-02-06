@@ -16,7 +16,7 @@ class NewsArticle:
     News class to dhttp://127.0.0.1:5000/efine News Objects
     '''
 
-    def __init__(self,id,title,description,author,url,urlToImage):
+    def __init__(self,id,title,description,author,url,urlToImage,content):
         self.id =id
         self.title = title
         self.description = description
@@ -24,3 +24,4 @@ class NewsArticle:
         self.url= url
         self.urlToImage = urlToImage
         self.publishedAt = publishedAt
+        self.content = content
