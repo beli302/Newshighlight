@@ -1,18 +1,17 @@
 from flask import render_template,redirect,url_for,request
 from . import main
-from ..models import Sources,Articles
-from ..request import get_articles,get_sources
+from ..request import get_articles,get_news
 
 @main.route('/')
 def index():
     '''
     Function that returns the index page and the processed data
     '''
-    general_news = get_sources('general')
-    business_news = get_sources('business')
-    entertainment_news = get_sources('entertainment')
-    sports_news = get_sources('sports')
-    technology_news = get_sources('technology')
+    general_news = get_news('general')
+    business_news = get_news('business')
+    entertainment_news = get_news('entertainment')
+    sports_news = get_news('sports')
+    technology_news = get_news('technology')
    
 
     title = 'Home | Best News Update Site'
@@ -27,4 +26,14 @@ def articles(id):
 	news_articles = get_articles(id)
 	title = f'{id}'
 
-	return render_template('articles.html',title= title,articles = news_articles)
+	return render_template('news_article.html',title= title,articles = news_articles)
+
+@main.route('/sources/<id>')
+def sources(id):
+	'''
+	Function to view sources page
+	'''
+	news_sources = get_sources(id)
+	title = f'{id}'
+
+	return render_template('index.html',title= title,sources = news_es)
